@@ -4,6 +4,25 @@
  * Poner nombres de los libros en español.
  * Añadir un enlace a los índices de los versículos para poder guardarlos en una base de datos con comentarios
  */
+ const JAG = {
+   "version": "1.1",
+   "fuente": "biblia_es.json",
+   "rvr": "https://raw.githubusercontent.com/camilacarvalho/Biblia---em-JSON/master/json/es_rvr.json",
+   "kjv": "https://raw.githubusercontent.com/camilacarvalho/Biblia---em-JSON/master/json/en_kjv.json",
+   "f_acentos": (cadena) => {
+         return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+       },
+     "log_arrayDeObjetos": (arr, cadena) => {
+         console.log('array [', cadena, ']: ', arr);
+      },
+     "log_arrayDeObjetosLista": function (arr, cadena) {
+         arr.forEach(item => {
+           //console.log(`Objetos en array [${cadena}]: ${item}`)
+           console.log('Objetos en array (', cadena , '):', item)
+         })
+       }
+ }
+
 let arrLibros = []
 let biblia = []
 let ver, num, consulta
@@ -203,7 +222,7 @@ function f_seleccionLibro() {
 }
 
 function f_inicio () {
-   var req = new Request(JAG.fuente);
+   var req = new Request(JAG.rvr);
    fetch(req)
    .then(res => res.json())
    .then(objeto => {
@@ -266,30 +285,3 @@ function p_versiculo(fuente) {
   return `
   <sup>${++num}</sup>${cadena}`;
 }
-// ------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------
-
-/*
-function mostrarError (codigo, mensaje) {
-if ( codigo == 'parametersMissing'){
-  var titulo = 'Parámetros sin declarar';
-  var detalle = 'Faltan parámetros para la búsqueda. El alcance de la búsqueda es demasiado amplio. Seleccione algunos parámetros del formulario superior.'
-} else if ( codigo == 'apiKeyExhausted' ) {
-  var titulo = 'Límite de consultas excedido';
-  var detalle = 'Ha superado el número máximo de consultas diarias. Vuelva a intentarlo mañana.'
-} else if ( codigo == 'unexpectedError' ) {
-  var titulo = 'Error inesperado';
-  var detalle = `La consulta contiene errores.
-  Compruebe que los caracteres especiales van precedidos de una barra inversa ( \\ )
-  y que las comillas dobles han sido cerradas (" ").`
-} else {
-  var titulo = codigo;
-  var detalle = mensaje;
-}
-document.getElementById('error').innerHTML = `
-    <div class="card bg-danger text-light">
-      <div class="card-header">${titulo}</div>
-      <p class="card-text">${detalle}</p>
-    </div>`;
-}
-*/
