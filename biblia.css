@@ -1,0 +1,50 @@
+mark {
+  background-color: yellow;
+}
+sup {
+  background-color: aqua;
+}
+.container {
+  padding-bottom: 30px;
+}
+#pie {
+  margin-top: 2em;
+}
+.noticias {
+  width: 480px;
+}
+.oculto {
+  display: none;
+}
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 2;
+    }
+    .noticias {
+      width: 243px;
+    }
+}
+@media (min-width: 768px) {
+  .card-columns {
+      column-count: 2;
+  }
+  .noticias {
+    width: 334px;
+  }
+}
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 3;
+    }
+    .noticias {
+      width: 295px;
+    }
+}
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 3;
+    }
+    .noticias {
+      width: 355px;
+    }
+}

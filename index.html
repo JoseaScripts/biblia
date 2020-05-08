@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="version" content="v1.0">
+  <meta name="description" content="
+  Proyecto de formación en programación javascript con acceso a datos externos en formato 'JSON'.
+  Uso de APIs externas: Bootstrap.
+  Configuración de varios parámetros.
+  Paginación de resultados.
+  Diferentes plantillas de presentación de resultados según sean versículos o capítulos.
+  Búsqueda de un término específico.">
+  <meta name="keywords" content="HTML,CSS,JavaScript,JSON,Bootstrap">
+  <meta name="author" content="José A. González">
+  <title>La Biblia: Versión Reina Valera</title>
+  <script src="jag.js" defer></script>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="biblia.css">
+<body onload="f_inicio()">
+  <div class="container">
+    <h1 class="bg-dark text-light text-center">La Biblia</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/"><img src="jose_a_gonzalez_logo_45x45.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        José A. González
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <form class="form-inline ml-auto">
+          <button type="submit" class="input-group-text btn btn-secondary" id="boton_tema">
+            <img src="lupa.png" alt="buscar" width="20px">
+          </button>
+            <input type="text" name="consulta" value="" placeholder=" Buscar" id="tema" class="pl-1">
+        </form>
+        <div class="navbar-nav">
+        </div>
+      </div>
+    </nav>
+
+    <h2 class="bg-secondary text-light text-center" id="subtitulo"></h2>
+    <small>Textos obtenidos de <a href="https://github.com/camilacarvalho/Biblia---em-JSON">Biblia---em-JSON</a>.</small>
+    <h3 id="resultados"></h3>
+    <div id="contenido" class="card-columns mt-3"></div>
+    <div id="error"></div>
+    <div id="pie" class="text-center">
+      <span id="anterior"></span>
+      <span id="siguiente"></span>
+    </div>
+  </div>
+  </body>
+</html>
